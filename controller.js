@@ -16,7 +16,7 @@ function Pencil(ctx, drawing, canvas) {
 	this.onInteractionStart = function(dnd){
 		switch (this.currEditingMode) {
 			case editingMode.rect:
-				this.currentShape = new Rectangle(dnd.init_x, dnd.init_y, 0, 0, this.currColour, this.currLineWidth);
+				this.currentShape = new Rectangle(dnd.init_x, dnd.init_y, dnd.init_x, dnd.init_y, this.currColour, this.currLineWidth);
 				break;
 			case editingMode.line:
 				this.currentShape = new Ligne(dnd.init_x, dnd.init_y, dnd.init_x, dnd.init_y, this.currColour, this.currLineWidth);
@@ -43,6 +43,27 @@ function Pencil(ctx, drawing, canvas) {
 		drawing.tab.push(this.currentShape);
 		drawing.paint(ctx);
 	}
+
+	document.getElementById('butRect').onchange = (e) => {
+		this.currEditingMode = editingMode.rect;
+	}
+
+	document.getElementById('butLine').onchange = (e) => {
+		this.currEditingMode = editingMode.line;
+	}
+	document.getElementById('spinnerWidth').onchange = (e) => {
+		this.currLineWidth = document.getElementById('spinnerWidth').value;
+	}
+
+	document.getElementById('colour').onchange = (e) => {
+		this.currColour = document.getElementById('colour').value;
+	}
+
+
+	
+	
+
+
 
 };
 
