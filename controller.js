@@ -42,6 +42,7 @@ function Pencil(ctx, drawing, canvas) {
 	this.onInteractionEnd = function(dnd){
 		drawing.tab.push(this.currentShape);
 		drawing.paint(ctx);
+		drawing.updateShapeList(ctx);
 	}
 
 	document.getElementById('butRect').onchange = (e) => {
@@ -58,6 +59,7 @@ function Pencil(ctx, drawing, canvas) {
 	document.getElementById('colour').onchange = (e) => {
 		this.currColour = document.getElementById('colour').value;
 	}
+
 
 
 	
