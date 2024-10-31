@@ -29,8 +29,6 @@ Drawing.prototype.paint = function (ctx) {
 };
 
 Rectangle.prototype.updateShapeList = function (ctx, button) {
-    if (this.largeur > 0 && this.hauteur > 0) {
-
 
         let liste = document.getElementById("shapeList");
         let ul = document.createElement("ul");
@@ -42,8 +40,7 @@ Rectangle.prototype.updateShapeList = function (ctx, button) {
         p.insertBefore(button, p.firstChild);
         ul.appendChild(p);
         liste.appendChild(ul);
-    }
-
+    
 };
 
 Ligne.prototype.updateShapeList = function (ctx, button) {
